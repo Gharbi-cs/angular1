@@ -1,0 +1,28 @@
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Sales</th>
+            <th>Met Quota?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let element of salesPersonList " >
+            <td>{{element.firstname}}</td>
+            <td>{{element.lastname}}</td>
+            <td>{{element.email}}</td>
+            <td>{{element.salesVolume|currency:"USD" }}</td>
+          <!-- <td *ngIf="element.salesVolume>=500">Yes</td>
+            <td *ngIf="element.salesVolume<500">No</td>-->
+           <td>
+               <div *ngIf="element.salesVolume>=500; else inesblockelse ">Yes</div>
+           </td>
+
+
+          </tr>
+    </tbody>
+  </table>
+<ng-template #inesblockelse>No</ng-template>
